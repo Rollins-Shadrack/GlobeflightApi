@@ -5,11 +5,10 @@ const User = require('../models/Users')
 const protect = asyncHandler( async(req,res,next) => {
     let token;
 
-    console.log(req.user)
     token = req.cookies.jwt;
     if(token){
         try{
-            const decoded = jwt.verify(token, process.env.JWT_SECRET)
+            const decoded = jwt.verify(token, 'sjdioadkcdidocmiqwejddanoiciqwencjaokejdncjaomwoedjincxjasdncnsd')
             req.user = await User.findById(decoded.userId).select('-password')
 
             next()
