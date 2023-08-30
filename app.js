@@ -162,7 +162,7 @@ io.on('connection', (socket) => {
 const PORT  = process.env.PORT || 8000;
 
 
-mongoose.connect('mongodb+srv://Rollins:12345@cluster0.1ba83.mongodb.net/GlobeFlight').then(async()=>{
+mongoose.connect(process.env.MONGO_URL).then(async()=>{
   server.listen(PORT, () => console.log(`Server started on port ${PORT}`))
     //Adding a seed data to the database
     // await mongoose.connection.db.dropDatabase()
