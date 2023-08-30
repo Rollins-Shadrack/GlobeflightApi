@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(cookieParser())
 app.use(
     cors({
-      origin: 'http://localhost:3000', 
+      origin: ['http://localhost:3000', 'https://globeflight_dashboard.netlify.app'],
       credentials: true, 
     })
   );
