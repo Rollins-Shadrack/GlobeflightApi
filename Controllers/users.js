@@ -198,13 +198,16 @@ const AllUsers = asyncHandler(async(req,res) =>{
         res.status(404).json({message: error.message})
     }
 })
+
 const deleteUser = asyncHandler(async(req,res) =>{
-   let deleted =  await User.deleteOne({_id: req.body.id})
-   if(deleted){
-    res.status(200).json({message:'Employee Removed'})
-   }
-   throw new Error('Unable to Remove Employee')
-})
+    let deleted =  await User.deleteOne({_id: req.body.id})
+    if(deleted){
+       res.status(200).json({message:'Employee Removed'})
+    } else {
+       throw new Error('Unable to Remove Employee')
+    }
+ })
+ 
 
 const newPlan = asyncHandler(async(req,res) =>{
     try {
